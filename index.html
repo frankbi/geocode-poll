@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+	<button onclick="easyButton()">Easy Button</button>
+
+	<script type="text/javascript" src="lib/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+
+
+	function easyButton() {
+
+		$.ajax({
+			url: "geo.php",
+			type: "POST",
+			data: { "ans": 1 },
+			success: function(d) {
+				console.log("IP: " + d);
+			}
+		});
+
+	}
+
+	</script>
+	</body>
+</html>
