@@ -17,7 +17,7 @@
 			type: "POST",
 			data: { "ans": 1 },
 			success: function(d) {
-				console.log("IP: " + d);
+				console.log(JSON.parse(d));
 			}
 		});
 
