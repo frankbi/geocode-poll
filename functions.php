@@ -3,9 +3,10 @@
 
 	// return ip address and other location info
 	function get_ip() {
-		// hits api, gets ip address
-		// rate limit is 10K/hour
-		$str = file_get_contents("http://freegeoip.net/json/");
+		// hopefully, get ip
+		$ip = $_SERVER["REMOTE_ADDR"];
+		// hit api, rate limit is 10K/hour
+		$str = file_get_contents("http://freegeoip.net/json/{$ip}");
 		// returns as associative array
 		$json = json_decode($str, true);
 		return $json;
