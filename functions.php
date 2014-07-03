@@ -60,23 +60,8 @@
 		return $output;
 	}
 
-	// query all distinct occurrences of each region_name
-	function return_geocode_results($c) {
-		// query distinct occurrences
-		$result = mysqli_query($c, "
-			SELECT region_name, COUNT(*) AS region_name_count
-			FROM geo_korm_07012014
-			GROUP BY region_name; 
-		");
-		// init array to store all rows of result
-		$output = array();
-		// loop through results, adding each to output array
-		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-			array_push($output, $row);
-		}
-		return $output;
-	}
 
+	// TODO
 	// calls for functions to return geo and poll data
 	// combines into one json and returns via ajax
 	function return_results($c) {
@@ -88,6 +73,7 @@
 		array_push($result, return_geocode_results($c));
 		return json_encode($result);
 	}
+
 
 
 ?>
