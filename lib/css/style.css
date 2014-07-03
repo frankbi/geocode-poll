@@ -1,0 +1,42 @@
+#wrapper {
+	max-width:670px;
+}
+.interactive-container {
+	width:100%;
+	font-family: 'Roboto', sans-serif;
+	border:1px solid black;
+	padding:10px;
+}
+.interactive-container h3 {
+	text-align:center;
+	margin:0px;
+	padding:0px 15px 0px 15px;
+	font-size:1.5em;
+}
+
+.selection {
+	width:80%;
+	min-height:30px;
+	margin:10px auto 10px auto;
+	text-align:center;
+	cursor:pointer;
+	color:white;
+}
+.selection h4 {
+	margin:0px;
+	padding:0px;
+}
+.selection:hover {
+	opacity:0.6;
+}
+	.ketchup {
+		background-color:rgb(224,0,0);
+	}
+
+	.mustard {
+		background-color:rgb(195,178,13);
+	}
+
+	.both {
+		background-color:orange;
+	}	
