@@ -43,37 +43,81 @@
 		");
 	}
 
-	// query all distinct occurrences of selections
-	function return_poll_results($c) {
-		// query distinct occurrences
+	function return_results($c) {
 		$result = mysqli_query($c, "
-			SELECT ans, COUNT(*) AS ans_num
+			SELECT DISTINCT ans, COUNT(*)
+			AS num_ans
 			FROM geo_korm_07012014
 			GROUP BY ans;
 		");
-		// init array to store all rows of result
 		$output = array();
 		// loop through results, adding each to output array
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			array_push($output, $row);
 		}
-		return $output;
+		return json_encode($output);
 	}
 
 
-	// TODO
-	// calls for functions to return geo and poll data
-	// combines into one json and returns via ajax
-	function return_results($c) {
-		// array to be json_encoded
-		$result = array();
-		// push poll results to array to be returned
-		array_push($result, return_poll_results($c));
-		// push geo results to array to be returned
-		array_push($result, return_geocode_results($c));
-		return json_encode($result);
-	}
 
+
+
+	/*
+
+		// query all distinct occurrences of each region_name
+		function return_geocode_results($c) {
+			$represented = mysqli_query($c, "
+				SELECT region_name, COUNT(*)
+				FROM geo_korm_07012014
+				WHERE ans = "0"
+				GROUP BY region_name
+			");
+			// query distinct occurrences
+			$result = mysqli_query($c, "
+				SELECT region_name, COUNT(*) AS region_name_count
+				FROM geo_korm_07012014
+				GROUP BY region_name; 
+			");
+			// init array to store all rows of result
+			$output = array();
+			// loop through results, adding each to output array
+			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+				array_push($output, $row);
+			}
+			return $output;
+		}
+
+		// query all distinct occurrences of selections
+		function return_poll_results($c) {
+			// query distinct occurrences
+			$result = mysqli_query($c, "
+				SELECT ans, COUNT(*) AS ans_num
+				FROM geo_korm_07012014
+				GROUP BY ans;
+			");
+			// init array to store all rows of result
+			$output = array();
+			// loop through results, adding each to output array
+			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+				array_push($output, $row);
+			}
+			return $output;
+		}
+
+
+		// calls for functions to return geo and poll data
+		// combines into one json and returns via ajax
+		function return_results_TODO($c) {
+			// array to be json_encoded
+			$result = array();
+			// push poll results to array to be returned
+			array_push($result, return_poll_results($c));
+			// push geo results to array to be returned
+			array_push($result, return_geocode_results($c));
+			return json_encode($result);
+		}
+
+	*/
 
 
 ?>
