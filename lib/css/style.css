@@ -35,5 +35,9 @@
 	}
 
 	.both {
-		background-color:orange;
-	}	
+		background-color:rgb(255,165,0);
+	}
+
+	.nothing {
+		background-color:rgb(139,139,130);
+	}
