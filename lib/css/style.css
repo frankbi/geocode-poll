@@ -40,3 +40,7 @@
 	.nothing {
 		background-color:rgb(139,139,130);
 	}
+.vote-counter {
+	display:block;
+	text-align:center;
+}
